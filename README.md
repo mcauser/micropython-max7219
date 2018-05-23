@@ -82,7 +82,7 @@ display.text('1234',0,0,1)
 display.show()
 ```
 
-## Connections
+## Pin Connections
 
 PyBoard | max7219 8x8 LED Matrix
 ------- | ----------------------
@@ -99,6 +99,14 @@ GND              | GND
 D7 MOSI (GPIO13) | DIN
 D8 CS (GPIO15)   | CS
 D5 SCK (GPIO14)  | CLK
+
+NodeMCU          | max7219 8x8 LED Matrix
+---------------- | ----------------------
+VIN              | VCC
+GND              | GND
+D7 (GPIO13)      | DIN
+D8 (GPIO15)      | CS
+D5 (GPIO14)      | CLK
 
 ## Links
 
