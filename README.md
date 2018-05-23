@@ -71,6 +71,20 @@ display.show()
 
 Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
 
+**Single 8x8 LED Matrix**
+
+```
+import max7219
+from machine import Pin, SPI
+spi = SPI(1, baudrate=10000000, polarity=0, phase=0)
+display = max7219.Matrix8x8(spi, Pin(15), 1)
+display.text('1', 0, 0, 1)
+display.show()
+```
+
+**Chain of 4x 8x8 LED Matrices**
+Where the 4 is drawn on the DIN matrix.
+
 ```
 import max7219
 from machine import Pin, SPI
@@ -78,7 +92,7 @@ spi = SPI(1, baudrate=10000000, polarity=0, phase=0)
 display = max7219.Matrix8x8(spi, Pin(15), 4)
 display.brightness(0)
 display.fill(0)
-display.text('1234',0,0,1)
+display.text('1234', 0, 0, 1)
 display.show()
 ```
 
