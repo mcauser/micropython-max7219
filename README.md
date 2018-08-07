@@ -6,7 +6,7 @@ A MicroPython library for the MAX7219 8x8 LED matrix driver, SPI interface, supp
 
 **Single 8x8 LED Matrix**
 
-```
+```python
 import max7219
 from machine import Pin, SPI
 spi = SPI(1)
@@ -18,7 +18,7 @@ display.show()
 **Chain of 4x 8x8 LED Matrices**
 Where the 4 is drawn on the DIN matrix.
 
-```
+```python
 import max7219
 from machine import Pin, SPI
 spi = SPI(1)
@@ -30,7 +30,7 @@ display.show()
 **Chain of 8x 8x8 LED Matrices**
 Where the 8 is drawn on the DIN matrix
 
-```
+```python
 import max7219
 from machine import Pin, SPI
 spi = SPI(1)
@@ -41,7 +41,7 @@ display.show()
 
 **Framebuf shapes and text**
 
-```
+```python
 display.fill(0)
 display.show()
 
@@ -71,7 +71,7 @@ display.show()
 
 Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
 
-```
+```python
 import max7219
 from machine import Pin, SPI
 spi = SPI(1, baudrate=10000000, polarity=0, phase=0)
@@ -105,3 +105,7 @@ D5 SCK (GPIO14)  | CLK
 * Based on [deshipu's max7219.py](https://bitbucket.org/thesheep/micropython-max7219/src)
 * [micropython.org](http://micropython.org)
 * [Docs on framebuf](http://docs.micropython.org/en/latest/pyboard/library/framebuf.html)
+
+## License
+
+Licensed under the [MIT License](http://opensource.org/licenses/MIT).
