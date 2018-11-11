@@ -82,6 +82,20 @@ display.text('1234',0,0,1)
 display.show()
 ```
 
+## ESP32 Examples
+
+Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
+
+```python
+import max7219
+from machine import Pin, SPI
+spi = SPI(1, baudrate=10000000, polarity=1, phase=0, sck=Pin(4), mosi=Pin(2))
+ss = Pin(5, Pin.OUT)
+display = max7219.Matrix8x8(spi, ss, 4)
+display.text('1234',0,0,1)
+display.show()
+```
+
 ## Connections
 
 PyBoard | max7219 8x8 LED Matrix
@@ -99,6 +113,14 @@ GND              | GND
 D7 MOSI (GPIO13) | DIN
 D8 CS (GPIO15)   | CS
 D5 SCK (GPIO14)  | CLK
+
+ESP32            | max7219 8x8 LED Matrix
+---------------- | ----------------------
+5V               | VCC 
+GND              | GND
+D2 MOSI          | DIN
+D5 CS            | CS
+D4 SCK           | CLK
 
 ## Links
 
