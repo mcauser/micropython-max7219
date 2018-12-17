@@ -36,7 +36,7 @@ _SHUTDOWN = const(12)
 _DISPLAYTEST = const(15)
 
 class Matrix8x8:
-    def __init__(self, spi, cs, num):
+    def __init__(self, spi, cs, num, format=framebuf.MONO_HLSB):
         """
         Driver for cascading MAX7219 8x8 LED matrices.
 
@@ -53,7 +53,7 @@ class Matrix8x8:
         self.cs.init(cs.OUT, True)
         self.buffer = bytearray(8 * num)
         self.num = num
-        fb = framebuf.FrameBuffer(self.buffer, 8 * num, 8, framebuf.MONO_HLSB)
+        fb = framebuf.FrameBuffer(self.buffer, 8 * num, 8, format)
         self.framebuf = fb
         # Provide methods for accessing FrameBuffer graphics primitives. This is a workround
         # because inheritance from a native class is currently unsupported.
