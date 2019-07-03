@@ -86,6 +86,12 @@ class Matrix8x8:
         ):
             self._write(command, data)
 
+    def shutdown(self):
+        self._write(_SHUTDOWN, 0)
+
+    def normal(self):
+        self._write(_SHUTDOWN, 1)
+        
     def brightness(self, value):
         if not 0 <= value <= 15:
             raise ValueError("Brightness out of range")
